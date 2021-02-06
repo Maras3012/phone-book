@@ -1,7 +1,8 @@
 import './App.css';
 import React, { Component } from 'react';
 
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import { firebaseConfig } from './config';
 
 class App extends Component {
@@ -9,17 +10,29 @@ class App extends Component {
     super()
 
     this.app = firebase.initializeApp(firebaseConfig);
-    this.database = this.app.database().ref().child('number');
+    this.database = this.app.database().ref().child('value');
+
+    /* this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this); */
 
     this.state = {
-      number: 0
+      value: 0
     }
   }
+/* 
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    
+  } */
 
   componentDidMount() {
     this.database.on('value', snap => {
       this.setState({
-        number:  snap.val()
+        value:  snap.val()
       });
     });
   }
@@ -27,8 +40,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* <form onSubmit={this.handleSubmit}>
+          <label>
+            Name:
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form> */}
+
         <h1>HAHAHAHAHAHAHAHA</h1>
-        <h1>Value: {this.state.number}</h1>
+        <h1>Value: {this.state.value}</h1>
       </div>
     )
   }
