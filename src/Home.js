@@ -13,7 +13,7 @@ class Home extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     
         this.state = {
-          value: 0
+          value: null
         }
       }
     
