@@ -12,22 +12,29 @@ class App extends Component {
     this.app = firebase.initializeApp(firebaseConfig);
     this.database = this.app.database().ref().child('value');
 
-    /* this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this); */
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
       value: 0
     }
   }
-/* 
+
   handleChange(event) {
     this.setState({value: event.target.value});
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    
-  } */
+    //logika za update firebase-a
+    this.database.set( this.state.value );
+    //logika za refresh nakon push-a na firebase
+    this.database.on('value', snap => {
+      this.setState({
+        value:  snap.val()
+      });
+    });
+  }
 
   componentDidMount() {
     this.database.on('value', snap => {
@@ -40,16 +47,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <form onSubmit={this.handleSubmit}>
+        <h1>Testing external components</h1>
+        <h3>Value: {this.state.value}</h3>
+
+        <form onSubmit={this.handleSubmit}>
           <label>
-            Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            Value: <input type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
           <input type="submit" value="Submit" />
-        </form> */}
-
-        <h1>HAHAHAHAHAHAHAHA</h1>
-        <h1>Value: {this.state.value}</h1>
+        </form>
       </div>
     )
   }
