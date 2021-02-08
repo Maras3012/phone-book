@@ -1,12 +1,12 @@
 .App {
   text-align: center;
-  background: url("./components/background.png");
+  /* background: url("./components/background.png");
   position: fixed;
   min-width: 100%;
   min-height: 100%;
   background-size: cover;
   background-position: center;
-  z-index: -1;
+  z-index: -1; */
 }
 
 .App-logo {
