@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import app from "./auth/base";
+import Toolbar from './components/Toolbar/Toolbar';
+import Footer from './components/Footer/Footer';
+import './Home.css'
 
+import app from "./auth/base";
 import 'firebase/database';
 
 class Home extends Component {
@@ -43,18 +46,22 @@ class Home extends Component {
 
   render() {  
   return (
-    <div>
-        <h1>Testing external components</h1>
-        <h3>Value: {this.state.value}</h3>
+    <div >
+        <Toolbar />
+        <div className="Content">
+            <h1>Testing external components</h1>
+            <h3>Value: {this.state.value}</h3>
 
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Value: <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+            <form onSubmit={this.handleSubmit}>
+            <label>
+                Value: <input type="text" value={this.state.value} onChange={this.handleChange} />
+            </label>
+            <input type="submit" value="Submit" />
+            </form>
 
-        <button onClick={() => app.auth().signOut()}>Sign out</button>
+            <button onClick={() => app.auth().signOut()}>Sign out</button>
+        </div>
+        <Footer />
     </div>
   );
   }
