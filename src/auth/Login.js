@@ -5,14 +5,14 @@ import { AuthContext } from "./Auth.js";
 import './Padding.css';
 
 const Login = ({ history }) => {
-  const handleLogin = useCallback(
+  const handleLogin = useCallback( //fires up when we click on login button
     async event => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
         await app
           .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
+          .signInWithEmailAndPassword(email.value, password.value); //we call signin on firebase
         history.push("/");
       } catch (error) {
         alert(error);
@@ -23,11 +23,11 @@ const Login = ({ history }) => {
 
   const { currentUser } = useContext(AuthContext);
 
-  if (currentUser) {
+  if (currentUser) { //if we have a user it will redirect us to path set by "/" and that is Home
     return <Redirect to="/" />;
   }
 
-  return (
+  return ( //layout
     <div className="Padding">
       <h1>Log in</h1>
       <form onSubmit={handleLogin}>

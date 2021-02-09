@@ -5,7 +5,7 @@ import Logo from '../Logo/Logo';
 const toolbar = (props) => (
     <header className="Toolbar">
       <div><b>NOTES</b></div>
-      <Logo />
+      <Logo height="80%" />
       <div><b>SIGN OUT</b></div>
     </header>  
 )

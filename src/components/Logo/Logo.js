@@ -3,7 +3,7 @@ import phonebookLogo from './phonebook.png';
 import './Logo.css';
 
 const logo = (props) => (
-    <div className="Logo">
+    <div className="Logo" style={{height: props.height}}>
         <img src={phonebookLogo} alt="Phonebook"/>
     </div>
 );

@@ -9,12 +9,14 @@ import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
 import { AuthProvider } from "./auth/Auth";
 import PrivateRoute from "./auth/PrivateRoute";
+import SideDrawer from './components/SideDrawer/SideDrawer';
 
 class App extends Component {
   render() {
     return (
-      <AuthProvider>
+       <AuthProvider> {/* everything below has access to current user throw context and than it chooses what to show based on authentication status */}
         <Toolbar />
+        <SideDrawer />
         <Router>
           <div className="App">
             <PrivateRoute exact path="/" component={Home} />

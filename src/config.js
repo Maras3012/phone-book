@@ -1,3 +1,4 @@
+//configuration for firebase database, copyed from firebase
 export const firebaseConfig = {
     apiKey: "AIzaSyABZM_O8lGoMQUXXuZDNFVzzuAoyGCUjGk",
     authDomain: "my-work-one-e5d31.firebaseapp.com",

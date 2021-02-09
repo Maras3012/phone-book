@@ -4,20 +4,20 @@ import app from "./base";
 import './Padding.css';
 
 const SignUp = ({ history }) => {
-  const handleSignUp = useCallback(async event => {
-    event.preventDefault();
+  const handleSignUp = useCallback(async event => { //it fires up when we click signup button, using useCallback to minimalize callback
+    event.preventDefault(); //it helps to not reload the page
     const { email, password } = event.target.elements;
     try {
       await app
         .auth()
-        .createUserWithEmailAndPassword(email.value, password.value);
+        .createUserWithEmailAndPassword(email.value, password.value); //we try to create user on firebase
       history.push("/");
     } catch (error) {
       alert(error);
     }
   }, [history]);
 
-  return (
+  return ( //layout
     <div className="Padding">
       <h1>Sign up</h1>
       <form onSubmit={handleSignUp}>
