@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "./base";
+import './Padding.css';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -17,7 +18,7 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   return (
-    <div>
+    <div className="Padding">
       <h1>Sign up</h1>
       <form onSubmit={handleSignUp}>
         <label>

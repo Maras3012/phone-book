@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "./base.js";
 import { AuthContext } from "./Auth.js";
+import './Padding.css';
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -27,7 +28,7 @@ const Login = ({ history }) => {
   }
 
   return (
-    <div>
+    <div className="Padding">
       <h1>Log in</h1>
       <form onSubmit={handleLogin}>
         <label>
