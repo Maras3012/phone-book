@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import Toolbar from './components/Toolbar/Toolbar';
+import Footer from './components/Footer/Footer';
 //authentication
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./Home";
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp} />
           </div>
         </Router>
+        <Footer />
       </AuthProvider>
     )
   }
