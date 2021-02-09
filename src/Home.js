@@ -61,7 +61,7 @@ class Home extends Component {
 
             <button onClick={() => app.auth().signOut()}>Sign out</button>
         </div>
-        {/* <Footer /> */}
+        <Footer />
     </div>
   );
   }
