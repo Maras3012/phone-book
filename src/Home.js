@@ -47,6 +47,7 @@ class Home extends Component {
   render() {  
   return (
     <div >
+        {/* ovdje su Toolbar i Footer samo kao padding pokrenuti su zapravo u Home.js */}
         <Toolbar />
         <div className="Content">
             <h1>Testing external components</h1>
