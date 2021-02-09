@@ -47,7 +47,7 @@ class Home extends Component {
   render() {  
   return (
     <div >
-        <Toolbar />
+        {/* <Toolbar /> */}
         <div className="Content">
             <h1>Testing external components</h1>
             <h3>Value: {this.state.value}</h3>

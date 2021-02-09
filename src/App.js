@@ -1,5 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
+import Toolbar from './components/Toolbar/Toolbar';
 //authentication
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./Home";
@@ -12,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <AuthProvider>
+        <Toolbar />
         <Router>
           <div className="App">
             <PrivateRoute exact path="/" component={Home} />

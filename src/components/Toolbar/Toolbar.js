@@ -3,11 +3,11 @@ import './Toolbar.css'
 import Logo from '../Logo/Logo';
 
 const toolbar = (props) => (
-    <div className="Toolbar">
+    <header className="Toolbar">
       <div><b>NOTES</b></div>
       <Logo />
       <div><b>SIGN OUT</b></div>
-    </div>  
+    </header>  
 )
 
 export default toolbar;
