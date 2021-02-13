@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../Logo/Logo';
 import './SideDrawer.css';
 import Backdrop from '../Backdrop/Backdrop';
+import TextEditor from '../TextEditor/TextEditor';
 
 const sideDrawer = (props) => {
     let css = ['SideDrawer', 'Close'];
@@ -14,6 +15,7 @@ const sideDrawer = (props) => {
         <Backdrop show={props.open} clicked={props.closed} />
         <div className={css.join(' ')}>
             <Logo height="11%" />
+            <TextEditor />
         </div>
         </div>
     );
