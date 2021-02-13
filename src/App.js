@@ -13,10 +13,10 @@ import SideDrawer from './components/SideDrawer/SideDrawer';
 
 class App extends Component {
   state = {
-    showSideDrawer: false
+    showSideDrawer: true
   }
 
-  sideDrawerCloseHandler = () => {
+  sideDrawerClosedHandler = () => {
     this.setState({showSideDrawer: false});
   }
 
@@ -32,7 +32,7 @@ class App extends Component {
         <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
         <SideDrawer 
           open={this.state.showSideDrawer} 
-          closed={this.sideDrawerCloseHandler} />
+          closed={this.sideDrawerClosedHandler} />
         <Router>
           <div className="App">
             <PrivateRoute exact path="/" component={Home} />
