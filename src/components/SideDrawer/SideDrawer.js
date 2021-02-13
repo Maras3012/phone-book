@@ -3,10 +3,14 @@ import Logo from '../Logo/Logo';
 import './SideDrawer.css'
 
 const sideDrawer = (props) => {
-    return (
-        <div className="SideDrawer">
-            <Logo height="11%" />
+    let css = ['sideDrawer', 'Close'];
+    if(props.open) {
+        css = ['sideDrawer', 'Open'];
+    }
 
+    return (
+        <div className={css.join(' ')}>
+            <Logo height="11%" />
         </div>
     );
 }
