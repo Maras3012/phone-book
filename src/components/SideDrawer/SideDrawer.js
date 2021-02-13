@@ -3,9 +3,9 @@ import Logo from '../Logo/Logo';
 import './SideDrawer.css'
 
 const sideDrawer = (props) => {
-    let css = ['sideDrawer', 'Close'];
+    let css = ['SideDrawer', 'Close'];
     if(props.open) {
-        css = ['sideDrawer', 'Open'];
+        css = ['SideDrawer', 'Open'];
     }
 
     return (

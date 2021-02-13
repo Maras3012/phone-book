@@ -9,7 +9,6 @@ import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
 import { AuthProvider } from "./auth/Auth";
 import PrivateRoute from "./auth/PrivateRoute";
-// import Backdrop from './components/Backdrop/Backdrop';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 
 class App extends Component {
@@ -31,7 +30,6 @@ class App extends Component {
     return (
        <AuthProvider> {/* everything below has access to current user throw context and than it chooses what to show based on authentication status */}
         <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
-        {/* <Backdrop show={this.state.show} clicked={this.sideDrawerCloseHandler} /> */}
         <SideDrawer 
           open={this.state.showSideDrawer} 
           closed={this.sideDrawerCloseHandler} />
