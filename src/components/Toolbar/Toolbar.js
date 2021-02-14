@@ -6,8 +6,8 @@ import DrawerToggle from '../DrawerToggle/DrawerToggle';
 const toolbar = (props) => (
     <header className="Toolbar">
       <DrawerToggle clicked={props.drawerToggleClicked} />
-      <Logo height="80%" />
-      <div><b>SIGN OUT</b></div>
+      <Logo height="80%" />{/*signOutClicked={this.signOutHandler dole*/}
+      <button className="SignOut" ><b>SIGN OUT</b></button> 
     </header>  
 )
 

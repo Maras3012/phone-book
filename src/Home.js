@@ -17,6 +17,10 @@ class Home extends Component {
           value: null
         }
       }
+
+      handleSignOut() {
+        app.auth().signOut();
+      }
     
       handleChange(event) {
         this.setState({value: event.target.value});
@@ -55,7 +59,7 @@ class Home extends Component {
             <input type="submit" value="Submit" />
             </form>
             {/* button for signout from firebase, when we click on it we call signOut() in auth module which is created with initializeApp() */}
-            <button onClick={() => app.auth().signOut()}>Sign out</button>
+            <button className="Signout" onClick={this.handleSignOut}><b>SIGN OUT</b></button>
         </div>
     </div>
   );
