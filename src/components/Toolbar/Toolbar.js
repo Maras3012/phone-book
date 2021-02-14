@@ -7,7 +7,7 @@ import DateTime from '../DateTime/DateTime';
 const toolbar = (props) => (
     <header className="Toolbar">
       <DrawerToggle clicked={props.drawerToggleClicked} />
-      <Logo height="80%" />{/*signOutClicked={this.signOutHandler dole*/}
+      <Logo height="80%" />
       <DateTime />
     </header>  
 )

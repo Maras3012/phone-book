@@ -59,7 +59,7 @@ class Home extends Component {
             <input type="submit" value="Submit" />
             </form>
             {/* button for signout from firebase, when we click on it we call signOut() in auth module which is created with initializeApp() */}
-            <button className="Signout" onClick={this.handleSignOut}><b>SIGN OUT</b></button>
+            <button onClick={this.handleSignOut}><b>Sign out</b></button>
         </div>
     </div>
   );
