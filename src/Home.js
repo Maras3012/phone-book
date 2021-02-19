@@ -14,7 +14,8 @@ class Home extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     
         this.state = {
-          value: null
+          value: null,
+          data: null
         }
       }
 
@@ -36,6 +37,12 @@ class Home extends Component {
             value:  snap.val()
           });
         });
+        //logika za spremanje CKEditora u Home component
+        this.setState(() => ({
+        data: localStorage.getItem('Data')
+        }));
+        console.log(this.state.data);  
+
       }
     
       componentDidMount() { //every time the database renders it will set the state to same value as on firebase
@@ -43,7 +50,12 @@ class Home extends Component {
           this.setState({
             value:  snap.val()
           });
+
+        
+
         });
+
+      
     }
 
   render() {  
