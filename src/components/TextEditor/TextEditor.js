@@ -7,11 +7,10 @@ class TextEditor extends Component {
         data: null
     }
 
-
     onChangeInEditor = (event, editor) => {
         const data = editor.getData()
         this.setState({data: data})
-        localStorage.setItem('Data',this.state.data)
+        localStorage.setItem('Data-post',this.state.data)
     }
 
     render() {
@@ -22,7 +21,7 @@ class TextEditor extends Component {
                     editor={ ClassicEditor }
                     data="" //default text
                     // onReady={ editor => {
-                    //     // You can store the "editor" and use when it is needed.
+                    //     //You can store the "editor" and use when it is needed.
                     //     console.log( 'Editor is ready to use!', editor );
                     // } }
                     onChange={ ( event, editor ) => this.onChangeInEditor(event, editor) }

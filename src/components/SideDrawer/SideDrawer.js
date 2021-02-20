@@ -16,6 +16,7 @@ const sideDrawer = (props) => {
         <div className={css.join(' ')}>
             <Logo height="11%" />
             <TextEditor />
+            <div className="Notes">{localStorage.getItem('Data-get').replace('<p>','').replace('</p>', '')}</div>
         </div>
         </div>
     );

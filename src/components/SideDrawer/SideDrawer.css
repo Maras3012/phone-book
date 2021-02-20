@@ -12,6 +12,17 @@
     transition: transform 0.3s ease-out;
 }
 
+.Notes {
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 7px;
+    border: grey;
+    border-style: solid;
+    border-width: 2px;
+    text-align: justify;
+}
+
 .Open {
     transform: translateX(0);
 }
