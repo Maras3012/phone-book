@@ -71,14 +71,13 @@ class Home extends Component {
     <div>
         <div className="Content">
             <h1>MyContacts</h1>
-            {/* <h1>Testing external components</h1>
-            <h3>Value: {this.state.value}</h3>
+            {/* <h3>Value: {this.state.value}</h3> */}
             <form onSubmit={this.handleSubmit}>
-            <label>
+            {/* <label>
                 Value: <input type="text" value={this.state.value} onChange={this.handleChange} />
-            </label>
+            </label> */}
             <input type="submit" value="Submit" />
-            </form> */}
+            </form>
             {/* button for signout from firebase, when we click on it we call signOut() in auth module which is created with initializeApp() */}
             <button onClick={this.handleSignOut}><b>Sign out</b></button>
         </div>
