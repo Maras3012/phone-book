@@ -4,6 +4,54 @@ import './Home.css'
 import app from "./auth/base";
 import 'firebase/database';
 
+const Contact = (props) => {
+  return (
+      <tr className="leftPadding">
+          <th>{props.user.name}</th>
+          <th>{props.user.number}</th>
+          <th>{props.user.email}</th>
+          <th>{props.user.date}</th>
+          <th><button className="Danger" onClick={() => {
+            props.deleteContactHandler(props.index)
+          }}>Delete</button></th>
+      </tr>
+  )
+}
+
+class AddContact extends Component {
+  state = {
+    name: "",
+    number: "",
+    email: "",
+    date: ""
+  }
+
+  onChangeName = (e) => {
+    this.setState({name: e.target.value})
+  }
+  onChangeNumber = (e) => {
+    this.setState({number: e.target.value})
+  }
+  onChangeEmail = (e) => {
+    this.setState({email: e.target.value})
+  }
+  onChangeDate = (e) => {
+    this.setState({date: e.target.value})
+  }
+
+  render() {
+    return (
+      <div>
+        Name: <input placeholder="Name" type="text" value={this.state.name} onChange={this.onChangeName}></input> <br/>
+        Number: <input placeholder="Number" type="text" value={this.state.number} onChange={this.onChangeNumber}></input> <br/>
+        Email: <input placeholder="Email" type="text" value={this.state.email} onChange={this.onChangeEmail}></input> <br/>
+        Date of birth: <input type="date" value={this.state.date} onChange={this.onChangeDate} min="1900-01-01" max="2100-12-31"></input> <br/>
+        <button className="Green-btn">Add Contact</button>
+      </div>
+    )
+  }
+}
+
 class Home extends Component {
     constructor() {
         super()
@@ -14,6 +62,20 @@ class Home extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     
         this.state = {
+          ContactList: [
+            {
+              name: 'Mario',
+              number: 323421414,
+              email: 'test@test.com',
+              date: '30.12.1998'
+            },
+            {
+              name: 'Mario',
+              number: 323421414,
+              email: 'test@test.com',
+              date: '30.12.1998'
+            }
+          ],
           value: null,
           data: null
         };
@@ -66,17 +128,40 @@ class Home extends Component {
         localStorage.setItem('Data-get', this.state.data);
       }
 
+      deleteContactHandler = (index) => {
+        const { ContactList } = this.state;
+        ContactList.splice(index, 1);
+        this.setState({ContactList: ContactList});
+      }
+
   render() {  
   return (
     <div>
         <div className="Content">
-            <h1>MyContacts</h1>
-            {/* <h3>Value: {this.state.value}</h3> */}
+            
             <form onSubmit={this.handleSubmit}>
-            {/* <label>
-                Value: <input type="text" value={this.state.value} onChange={this.handleChange} />
-            </label> */}
-            <input type="submit" value="Submit" />
+              <div className="ContactsList">
+                  <h1>Add Contact</h1>
+                  <AddContact />
+                  <br/>
+                  <hr/>
+                  <h1>MyContacts</h1>
+                  <div className="Contact">
+                      <table>
+                          <tr>
+                              <th>Name</th>
+                              <th>Number</th>
+                              <th>Email</th>
+                              <th>Date of birth</th>
+                              <th>Delete Contact</th>
+                          </tr>
+                          {this.state.ContactList.map((user, index) => {
+                            return <Contact user={user} index={index} deleteContactHandler={this.deleteContactHandler} />
+                          })}
+                      </table>
+                  </div>
+              </div>
+            <input type="submit" value="Save" />
             </form>
             {/* button for signout from firebase, when we click on it we call signOut() in auth module which is created with initializeApp() */}
             <button onClick={this.handleSignOut}><b>Sign out</b></button>

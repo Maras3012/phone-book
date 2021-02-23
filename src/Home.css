@@ -1,4 +1,42 @@
 .Content {
-    margin-top: 72px;
-    padding-top: 100px;
+    margin-top: 100px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.Green-btn {
+    padding: 10px;
+    color: black;
+    font-size: 17px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background: rgb(0, 191, 255);
+    font-weight: bold;
+}
+
+input {
+    padding: 6px 61px;
+    margin-bottom: 10px;
+}
+
+.Danger {
+    padding: 10px;
+    color: white;
+    font-size: 17px;
+    border-radius: 10px;
+    background: red;
 }
