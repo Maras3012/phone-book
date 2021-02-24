@@ -80,6 +80,18 @@ class Home extends Component {
               number: '+385978459945',
               email: 'mrso007@gmail.com',
               date: '9.7.1998'
+            },
+            {
+              name: 'Snježana Marasović',
+              number: '+385995673421',
+              email: 'snjeza007@gmail.com',
+              date: '1.3.1971'
+            },
+            {
+              name: 'Dinko Topić',
+              number: '+385995765667',
+              email: 'dinko007@gmail.com',
+              date: '25.11.1965'
             }
           ],
           value: null,
