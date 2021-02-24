@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "./base";
 import './Padding.css';
+import './Style.css';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => { //it fires up when we click signup button, using useCallback to minimalize callback
@@ -21,7 +22,7 @@ const SignUp = ({ history }) => {
     <div className="Padding">
       <h1>Sign up</h1>
       <form onSubmit={handleSignUp}>
-        <label>
+        <label className="Padding-1">
           Email
           <input name="email" type="email" placeholder="Email" />
         </label>
@@ -29,7 +30,7 @@ const SignUp = ({ history }) => {
           Password
           <input name="password" type="password" placeholder="Password" />
         </label>
-        <button type="submit">Sign Up</button>
+        <button className="Signin-btn" type="submit">Sign Up</button>
       </form>
     </div>
   );

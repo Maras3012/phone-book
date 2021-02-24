@@ -1,24 +1,47 @@
 .Content {
-    margin-top: 100px;
+    margin-top: 65px;
+    padding-right: 17px;
 }
 
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-  }
+}
   
-td, th {
+td, th, td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
     background-color: #dddddd;
 }
 
-.Green-btn {
+.a1 {
+    width: 11.4906% !important;
+}
+.a2 {
+    width: 18.3229% !important;
+}
+.a3 {
+    width: 24.0683% !important;
+}
+.a4 {
+    width: 21.2732% !important;
+}
+.a5 {
+    width: 24.8447% !important;
+}
+
+.Table-top {
+    width: 100%;
+    background: black !important;
+    color: white !important;
+}
+
+.Blue-btn {
     padding: 10px;
     color: black;
     font-size: 17px;
@@ -33,10 +56,38 @@ input {
     margin-bottom: 10px;
 }
 
-.Danger {
+.Save-btn {
+    padding: 10px;
+    color: black;
+    font-size: 17px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background: rgb(0, 191, 255);
+    font-weight: bold;
+}
+
+.Red-btn {
     padding: 10px;
     color: white;
     font-size: 17px;
     border-radius: 10px;
     background: red;
+    font-weight: bold;
+}
+
+.Red-btn-1 {
+    padding: 10px;
+    margin-left: 5px;
+    color: white;
+    font-size: 17px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background: red;
+    font-weight: bold;
+}
+
+.Contact {
+    position: relative;
+    overflow: auto;
+    height: 310px;
 }

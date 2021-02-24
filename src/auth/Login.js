@@ -3,6 +3,7 @@ import { withRouter, Redirect } from "react-router";
 import app from "./base.js";
 import { AuthContext } from "./Auth.js";
 import './Padding.css';
+import './Style.css';
 
 const Login = ({ history }) => {
   const handleLogin = useCallback( //fires up when we click on login button
@@ -31,7 +32,7 @@ const Login = ({ history }) => {
     <div className="Padding">
       <h1>Log in</h1>
       <form onSubmit={handleLogin}>
-        <label>
+        <label className="Padding-1">
           Email
           <input name="email" type="email" placeholder="Email" />
         </label>
@@ -39,7 +40,7 @@ const Login = ({ history }) => {
           Password
           <input name="password" type="password" placeholder="Password" />
         </label>
-        <button type="submit">Log in</button>
+        <button className="Login-btn" type="submit">Log in</button>
       </form>
     </div>
   );
