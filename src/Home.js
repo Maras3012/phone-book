@@ -157,7 +157,7 @@ class Home extends Component {
 
   render() {  
   return (
-    <div>
+    <div className="Back">
         <div className="Content">
                 <h2>Add Contact</h2>
                 <AddContact addContactHandler={this.addContactHandler} />

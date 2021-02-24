@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background: white/*url("./components/background.png")*/; 
+  background: url("./components/background.png"); 
+  background-position: -10% -10%;
   position: fixed;
   min-width: 100%;
   min-height: 100%;
