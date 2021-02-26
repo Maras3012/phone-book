@@ -138,14 +138,49 @@ class Home extends Component {
         //every time the component renders it will set the data to same value as on firebase
         app.database().ref().child('data').on('value', snap => {
           this.setState({
-            data:  snap.val()
+            data:  snap.val().replace('<p>','').replace('</p>', '')
           });
         });
         //every time the component renders it will set the ContactList to same value as on firebase
         app.database().ref().child('contacts').on('value', snap => {
           this.setState({
-            ContactList:  snap.val()
+            ContactList: snap.val()
           });
+        });
+        //ovo ne pomaze
+        if(this.state.ContactList === null) this.setState({
+          ContactList: [
+            {
+              name: 'Mario Marasović',
+              number: '+385996045695',
+              email: 'maras007@gmail.com',
+              date: '30.12.1998'
+            },
+            {
+              name: 'Domagoj Barbača',
+              number: '+385982567643',
+              email: 'dome007@gmail.com',
+              date: '10.8.1998'
+            },
+            {
+              name: 'Ivan Mršić',
+              number: '+385978459945',
+              email: 'mrso007@gmail.com',
+              date: '9.7.1998'
+            },
+            {
+              name: 'Snježana Marasović',
+              number: '+385995673421',
+              email: 'snjeza007@gmail.com',
+              date: '1.3.1971'
+            },
+            {
+              name: 'Dinko Topić',
+              number: '+385995765667',
+              email: 'dinko007@gmail.com',
+              date: '25.11.1965'
+            }
+          ]
         });
       }
 
