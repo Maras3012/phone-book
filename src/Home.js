@@ -99,7 +99,7 @@ class Home extends Component {
           temp: null,
           search: ''
         };
-        sessionStorage.setItem('Data-b', 'Ileana molim te unesi i nove korisnike. - Nov 19, 2021 4:16 PM');
+        //sessionStorage.setItem('Data-b', 'Ileana molim te unesi i nove korisnike. - Nov 19, 2021 4:16 PM');
         localStorage.setItem('Data-get', this.state.data);
       }
 
