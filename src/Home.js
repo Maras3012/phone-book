@@ -95,7 +95,9 @@ class Home extends Component {
             }
           ],
           value: null,
-          data: null
+          data: null,
+          temp: null,
+          search: ''
         };
 
         localStorage.setItem('Data-get', this.state.data);
@@ -121,8 +123,24 @@ class Home extends Component {
         });
         //logika za spremanje CKEditora u Home component
         this.setState(() => ({
-        data: localStorage.getItem('Data-post')
-        }));
+        data: localStorage.getItem('Data-post').replace('<p>','').replace('</p>', '').replace('null', '')
+        })); 
+        //MISLIM DA OVDJE MORAM NADODATI
+
+        //+
+        app.database().ref().child('data').on('value', snap => {
+          this.setState({
+            temp:  snap.val().replace('<p>','').replace('</p>', '').replace('null', '')
+          });
+        });
+        console.log(this.state.temp, this.state.data)
+        this.setState({
+            data: sessionStorage.getItem('Data-a').concat(" ", this.state.temp)
+        });
+        app.database().ref().child('data').set( this.state.data );
+        sessionStorage.setItem('Data-b', this.state.data);
+        //+
+
         //logika za spremanje CKEditora na firebase
         app.database().ref().child('data').set( this.state.data );
         //logika za spremanje kontakata na firebase
@@ -202,42 +220,55 @@ class Home extends Component {
         this.setState({ContactList});
       }
 
-  render() {  
-  return (
-    <div className="Back">
-        <div className="Content">
-                <h2>Add Contact</h2>
-                <AddContact addContactHandler={this.addContactHandler} />
-                <br/>
-                <table>
-                <tr className="Table-top">
-                  <th className="a1">Name</th>
-                  <th className="a2">Number</th>
-                  <th className="a3">Email</th>
-                  <th className="a4">Date of birth</th>
-                  <th className="a5">Delete Contact</th>
-                </tr>
-                </table>
-              {/* <div className="ContactsList"> */}
-                <div className="Contact">
-                      <table>
-                          <thead>
-                          </thead>
-                          <tbody>
-                          {this.state.ContactList.map((user, index) => {
-                            return <Contact user={user} index={index} deleteContactHandler={this.deleteContactHandler} />
-                          })}
-                          </tbody>
-                      </table>
-                </div>
-              {/* </div> */}
+      updateSearch = (event) => {
+        this.setState({search: event.target.value.substr(0,20)})
+      }
 
-            <button className="Save-btn" onClick={this.handleSubmit}>Save</button>
-            {/* button for signout from firebase, when we click on it we call signOut() in auth module which is created with initializeApp() */}
-            <button className="Red-btn-1" onClick={this.handleSignOut}><b>Sign out</b></button>
-        </div>
-    </div>
-  );
+  render() {
+    let filteredContacts = this.state.ContactList.filter(
+      (ContactList) => {
+        return ContactList.name.toLowerCase().indexOf(
+          this.state.search.toLowerCase()) !== -1;
+      }
+    );  
+    return (
+      <div className="Back">
+          <div className="Content">
+                  <h2>Add Contact</h2>
+                  <AddContact addContactHandler={this.addContactHandler} />
+                  <br/>
+                  <input type="text" value={this.state.search} 
+                    onChange={this.updateSearch.bind(this)} />
+                  <br/>
+                  <table>
+                  <tr className="Table-top">
+                    <th className="a1">Name</th>
+                    <th className="a2">Number</th>
+                    <th className="a3">Email</th>
+                    <th className="a4">Date of birth</th>
+                    <th className="a5">Delete Contact</th>
+                  </tr>
+                  </table>
+                {/* <div className="ContactsList"> */}
+                  <div className="Contact">
+                        <table>
+                            <thead>
+                            </thead>
+                            <tbody>
+                            {filteredContacts.map((user, index) => {
+                              return <Contact user={user} index={index} deleteContactHandler={this.deleteContactHandler} />
+                            })}
+                            </tbody>
+                        </table>
+                  </div>
+                {/* </div> */}
+
+              <button className="Save-btn" onClick={this.handleSubmit}>Save</button>
+              {/* button for signout from firebase, when we click on it we call signOut() in auth module which is created with initializeApp() */}
+              <button className="Red-btn-1" onClick={this.handleSignOut}><b>Sign out</b></button>
+          </div>
+      </div>
+    );
   }
 };
 

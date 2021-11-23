@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+import moment from 'moment';
+//izbocene linije su za datum i u fazi razvoja su
 class TextEditor extends Component {
     state = {
-        data: null
+        data: null,
+        date: null
     }
 
     onChangeInEditor = (event, editor) => {
-        const data = editor.getData()
-        this.setState({data: data})
-        localStorage.setItem('Data-post',this.state.data)
+        this.setState({date: moment().format('lll')})
+        const data = editor.getData().replace('<p>','').replace('</p>', '').replace('null', '')
+        this.setState({data: data.concat(" - ", this.state.date)})
+        localStorage.setItem('Data-post', this.state.data)
+        sessionStorage.setItem('Data-a', this.state.data)
     }
 
     render() {

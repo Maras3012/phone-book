@@ -13,9 +13,9 @@ import SideDrawer from './components/SideDrawer/SideDrawer';
 
 class App extends Component {
   state = {
-    showSideDrawer: false
+    showSideDrawer: false 
   }
-
+ 
   sideDrawerClosedHandler = () => {
     this.setState({showSideDrawer: false});
   }

@@ -16,7 +16,9 @@ const sideDrawer = (props) => {
         <div className={css.join(' ')}>
             <Logo height="11%" />
             <TextEditor />
-        <div className="Notes">{localStorage.getItem('Data-get')/*.replace('<p>','').replace('</p>', '')*/}</div> 
+        {/* Ileana molim te unesi i nove korisnike. */}
+        {/* Jelena molim te ispravi greske u unosu. */}
+        <div className="Notes">{(sessionStorage.getItem('Data-b') ? (sessionStorage.getItem('Data-b')).replace('<p>','').replace('</p>', '').replace('null', '').replace(/&nbsp;/g, ' ') : localStorage.getItem('Data-get')).replace('<p>','').replace('</p>', '').replace('null', '').replace(/&nbsp;/g, ' ')}</div> 
         </div>
         </div>
     );
